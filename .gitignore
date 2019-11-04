@@ -107,7 +107,6 @@ venv.bak/
 #examples/
 tests/
 .idea/
-poetry.lock
-pyproject.toml
-README.rst
-atgfe/
+#poetry.lock
+#pyproject.toml
+#atgfe/
