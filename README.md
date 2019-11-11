@@ -49,7 +49,7 @@ pip install -U atgfe
 # Usage
 
 ## Examples
-The [Examples](https://github.com/ahmed-mohamed-sn/ATgfe) are divided into two sections:
+The [Examples](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/) are divided into two sections:
 - Generated, where we test ATgfe's ability to handle hand-crafted non-linear problems where we know there is
 information that can be produced from interacting features together. 
 
