@@ -104,9 +104,10 @@ venv.bak/
 .mypy_cache/
 
 #data/
-#examples/
+examples/generated/functions_to_generate
 tests/
 .idea/
 #poetry.lock
 #pyproject.toml
 #atgfe/
+*.log

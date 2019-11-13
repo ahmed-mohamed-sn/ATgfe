@@ -27,7 +27,12 @@ ATgfe applies the following operations to generate candidate features:
 ```
 
 # Why ATgfe?
+ATgfe allows you to solve linear and **non-linear** problems by generating new **explainable** features from existing features. The generated 
+features can then be used with a linear model, you should be able to see substantial improvement if there is extra predictive information that can be gained from
+interacting existing features together.
 
+ATgfe has been compared with non-linear models like Gradient Boosting and it seems to achieve comparable results and over-perform them in some cases.
+Check the following examples [BMI](https://github.com/ahmed-mohamed-sn/ATgfe/blob/master/examples/generated/generated_1.ipynb) and [Rational difference](https://github.com/ahmed-mohamed-sn/ATgfe/blob/master/examples/generated/generated_2.ipynb)
 
 # Get started
 
@@ -37,6 +42,7 @@ ATgfe applies the following operations to generate candidate features:
 - Pandas ^0.25.2
 - Scipy ^1.3
 - Numpy ^1.17
+- Sympy ^1.4
 
 ## Install ATgfe
 ```
