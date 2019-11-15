@@ -62,6 +62,23 @@ information that can be produced from interacting features together.
 - [Yellowbrick](https://www.scikit-yb.org/en/latest/index.html)'s datasets which includes a mix of regression
  and classification problems including a multi-label regression problem.
 
+## Clean column names
+### ATgfe can't handle special characters
+```
+# example
+def prepare_column_names(columns):
+    return [col.replace(';', 'semi')
+            .replace('(', 'left_brace')
+            .replace('[', 'left_bracket')
+            .replace('$', 'dollar_sign')
+            .replace('#', 'hash')
+            .replace('!', 'explanation_mark')
+            for col in columns]
+
+columns = prepare_column_names(df.columns.tolist())
+df.columns = columns
+```
+
 ## GeneticFeatureEngineer arguments
 ```
 GeneticFeatureEngineer(
@@ -153,7 +170,7 @@ Select the number of decimal places to be used in the weights
 ### verbose
 Set to True to enable the logging.
 
-## GeneticFeatureEngineer fit() function arguments
+## fit() function arguments
 ```
 gfe.fit(
     number_of_generations: int = 100,
@@ -179,6 +196,14 @@ The mutation probability
 
 ### early_stopping_patience
 The maximum number of generations to wait before early stopping when the validation score is not improving.
+
+
+## transform() function arguments
+```
+X = gfe.transform(X)
+```
+
+Where X is the pandas dataframe that you would like to add the generated features to.
 
 ## Transformation operations
 

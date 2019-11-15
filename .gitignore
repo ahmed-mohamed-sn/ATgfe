@@ -105,6 +105,7 @@ venv.bak/
 
 #data/
 examples/generated/functions_to_generate
+examples/gplearn-comparison
 tests/
 .idea/
 #poetry.lock
