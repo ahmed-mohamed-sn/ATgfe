@@ -54,6 +54,7 @@ Check the following examples [BMI](https://github.com/ahmed-mohamed-sn/ATgfe/blo
 | Dataset                          | Linear Regression                                                       | LightGBM Regressor                                                     | Linear Regression + ATgfe                                          |
 |----------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------|
 | Concrete  (8 features)           | <ul>     <li>RMSE: 11.13</li>     <li>r^2: 0.643</li> </ul>             | <ul>     <li>RMSE: 6.44</li>     <li>r^2: 0.935</li> </ul>             | <ul>     <li>RMSE: 6.68</li>     <li>r^2: 0.891</li> </ul>         |
+| Boston  (13 features)            | <ul>     <li>RMSE: 4.796</li>     <li>r^2: 0.765</li> </ul>             | <ul>     <li>RMSE: 3.38</li>     <li>r^2: 0.859</li> </ul>             | <ul>     <li>RMSE: 3.20</li>     <li>r^2: 0.895</li> </ul>         |
 
 # Get started
 
