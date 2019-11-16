@@ -32,26 +32,8 @@ features can then be used with a linear model, you should be able to see substan
 interacting existing features together.
 
 ATgfe has been compared with non-linear models like Gradient Boosting and it seems to achieve comparable results and over-perform them in some cases.
-Check the following examples [BMI](https://github.com/ahmed-mohamed-sn/ATgfe/blob/master/examples/generated/generated_1.ipynb) and [Rational difference](https://github.com/ahmed-mohamed-sn/ATgfe/blob/master/examples/generated/generated_2.ipynb)
-
-# Get started
-
-## Requirements
-- Python ^3.6
-- DEAP ^1.3
-- Pandas ^0.25.2
-- Scipy ^1.3
-- Numpy ^1.17
-- Sympy ^1.4
-
-## Install ATgfe
-```
-pip install atgfe
-```
-## Upgrade ATgfe
-```
-pip install -U atgfe
-```
+Check the following examples [BMI](https://github.com/ahmed-mohamed-sn/ATgfe/blob/master/examples/generated/generated_1.ipynb), [Rational difference](https://github.com/ahmed-mohamed-sn/ATgfe/blob/master/examples/generated/generated_2.ipynb) and
+[IRIS](https://github.com/ahmed-mohamed-sn/ATgfe/blob/master/examples/toy-examples/iris_multi_classification.ipynb)
 
 # Results
 ## Generated
@@ -72,14 +54,33 @@ pip install -U atgfe
 | Dataset                          | Linear Regression                                                       | LightGBM Regressor                                                     | Linear Regression + ATgfe                                          |
 |----------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------|
 | Concrete  (8 features)           | <ul>     <li>RMSE: 11.13</li>     <li>r^2: 0.643</li> </ul>             | <ul>     <li>RMSE: 6.44</li>     <li>r^2: 0.935</li> </ul>             | <ul>     <li>RMSE: 6.68</li>     <li>r^2: 0.891</li> </ul>         |
+
+# Get started
+
+## Requirements
+- Python ^3.6
+- DEAP ^1.3
+- Pandas ^0.25.2
+- Scipy ^1.3
+- Numpy ^1.17
+- Sympy ^1.4
+
+## Install ATgfe
+```
+pip install atgfe
+```
+## Upgrade ATgfe
+```
+pip install -U atgfe
+```
 # Usage
 
 ## Examples
 The [Examples](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/) are divided into two sections:
-- Generated, where we test ATgfe's ability to handle hand-crafted non-linear problems where we know there is
+- [Generated](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/generated), where we test ATgfe's ability to handle hand-crafted non-linear problems where we know there is
 information that can be produced from interacting features together. 
 
-- [Yellowbrick](https://www.scikit-yb.org/en/latest/index.html)'s datasets which includes a mix of regression
+- [Toy Examples](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/toy-examples)'s datasets which includes a mix of regression
  and classification problems including a multi-label regression problem.
 
 ## Clean column names
