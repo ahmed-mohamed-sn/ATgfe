@@ -39,22 +39,22 @@ Check the following examples [BMI](https://github.com/ahmed-mohamed-sn/ATgfe/blo
 ## Generated
 | Expression                       | Linear Regression                                               | LightGBM Regressor                                             | Linear Regression + ATgfe                               |
 |----------------------------------|-----------------------------------------------------------------|----------------------------------------------------------------|---------------------------------------------------------|
-| BMI = weight/height^2            | <ul>     <li>RMSE: 3.268</li>     <li>r^2: 0.934</li> </ul>     | <ul>     <li>RMSE: 0.624</li>     <li>r^2: 0.996</li> </ul>    | <ul>     <li>RMSE: 0.0</li>     <li>r^2: 1.0</li> </ul> |
-| Y = (X1 - X2) / (X3 - X4)        | <ul>     <li>RMSE: 141.261</li>     <li>r^2: -0.068</li> </ul>  |  <ul>     <li>RMSE: 150.642</li>     <li>r^2: -0.52</li> </ul> | <ul>     <li>RMSE: 0.0</li>     <li>r^2: 1.0</li> </ul> |
-| Y = (Log10(X1) + Log10(X2)) / X5 | <ul>     <li>RMSE: 0.140</li>     <li>r^2: 0.899</li> </ul>     | <ul>     <li>RMSE: 0.102</li>     <li>r^2: 0.895</li> </ul>    | <ul>     <li>RMSE: 0.0</li>     <li>r^2: 1.0</li> </ul> |
-| Y = 0.4*X2^2 + 2*X4 + 2          | <ul>     <li>RMSE: 30077.269</li>     <li>r^2: 0.943</li> </ul> | <ul>     <li>RMSE: 980.297</li>     <li>r^2: 1.0</li> </ul>    | <ul>     <li>RMSE: 0.0</li>     <li>r^2: 1.0</li> </ul> |
+| BMI = weight/height^2            | <ul>     <li>RMSE: 3.268</li>     <li>r^2: 0.934</li> </ul>     | <ul>     <li>RMSE: 0.624</li>     <li>r^2: 0.996</li> </ul>    | <ul>  <li>RMSE: **0.0**</li><li>r^2: **1.0**</li> </ul> |
+| Y = (X1 - X2) / (X3 - X4)        | <ul>     <li>RMSE: 141.261</li>     <li>r^2: -0.068</li> </ul>  |  <ul>     <li>RMSE: 150.642</li>     <li>r^2: -0.52</li> </ul> | <ul>  <li>RMSE: **0.0**</li><li>r^2: **1.0**</li> </ul> |
+| Y = (Log10(X1) + Log10(X2)) / X5 | <ul>     <li>RMSE: 0.140</li>     <li>r^2: 0.899</li> </ul>     | <ul>     <li>RMSE: 0.102</li>     <li>r^2: 0.895</li> </ul>    | <ul>  <li>RMSE: **0.0**</li><li>r^2: **1.0**</li> </ul> |
+| Y = 0.4*X2^2 + 2*X4 + 2          | <ul>     <li>RMSE: 30077.269</li>     <li>r^2: 0.943</li> </ul> | <ul>     <li>RMSE: 980.297</li>     <li>r^2: 1.0</li> </ul>    | <ul>  <li>RMSE: **0.0**</li><li>r^2: **1.0**</li> </ul> |
 
 ## Classification
 | Dataset                          | Logistic Regression                                                     | LightGBM Classifier                                                    | Logistic Regression + ATgfe                                        |
 |----------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------|
-| SPAM  (57 features)              | <ul>     <li>Accuracy: 0.917</li>     <li>ROC_AUC: 0.97</li> </ul>      | <ul>     <li>Accuracy: 0.944</li>     <li>ROC_AUC: 0.98</li> </ul>     | <ul>     <li>Accuracy: 0.931</li>     <li>ROC_AUC: 0.97</li> </ul> |
-| IRIS  (4 features)               | <ul>     <li>Accuracy: 0.9</li>     <li>ROC_AUC: 0.95</li> </ul>        |  <ul>     <li>Accuracy: 0.946</li>     <li>ROC_AUC: 0.98</li> </ul>    | <ul>     <li>Accuracy: 0.973</li>     <li>ROC_AUC: 0.99</li> </ul> |
+| SPAM  (57 features)              | <ul>     <li>Accuracy: 0.917</li>     <li>ROC_AUC: 0.97</li> </ul>      | <ul><li>Accuracy: **0.944**</li>  <li>ROC_AUC: **0.98**</li> </ul>     | <ul>     <li>Accuracy: 0.931</li>     <li>ROC_AUC: 0.97</li> </ul> |
+| IRIS  (4 features)               | <ul>     <li>Accuracy: 0.9</li>     <li>ROC_AUC: 0.95</li> </ul>        |  <ul>     <li>Accuracy: 0.946</li>     <li>ROC_AUC: 0.98</li> </ul>    | <ul>  <li>Accuracy: **0.973**</li><li>ROC_AUC: **0.99**</li> </ul> |
 
 ## Regression
 | Dataset                          | Linear Regression                                                       | LightGBM Regressor                                                     | Linear Regression + ATgfe                                          |
 |----------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------|
-| Concrete  (8 features)           | <ul>     <li>RMSE: 11.13</li>     <li>r^2: 0.643</li> </ul>             | <ul>     <li>RMSE: 6.44</li>     <li>r^2: 0.935</li> </ul>             | <ul>     <li>RMSE: 6.68</li>     <li>r^2: 0.891</li> </ul>         |
-| Boston  (13 features)            | <ul>     <li>RMSE: 4.796</li>     <li>r^2: 0.765</li> </ul>             | <ul>     <li>RMSE: 3.38</li>     <li>r^2: 0.859</li> </ul>             | <ul>     <li>RMSE: 3.20</li>     <li>r^2: 0.895</li> </ul>         |
+| Concrete  (8 features)           | <ul>     <li>RMSE: 11.13</li>     <li>r^2: 0.643</li> </ul>             | <ul>     <li>RMSE: **6.44**</li>     <li>r^2: **0.935**</li> </ul>     | <ul>     <li>RMSE: 6.68</li>     <li>r^2: 0.891</li> </ul>         |
+| Boston  (13 features)            | <ul>     <li>RMSE: 4.796</li>     <li>r^2: 0.765</li> </ul>             | <ul>     <li>RMSE: 3.38</li>     <li>r^2: 0.859</li> </ul>             | <ul>  <li>RMSE: **3.20**</li><li>r^2: **0.895**</li> </ul>         |
 
 # Get started
 
