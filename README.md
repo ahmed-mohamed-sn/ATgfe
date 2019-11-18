@@ -63,13 +63,13 @@ This is demonstrated in the following examples: [BMI](https://github.com/ahmed-m
 - Sympy ^1.4
 
 ## Install ATgfe
-```
+```bash
 pip install atgfe
 ```
 ## Upgrade ATgfe
 ```bash
 pip install -U atgfe
-```bash
+```
 # Usage
 
 ## Examples
