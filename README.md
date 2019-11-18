@@ -74,7 +74,7 @@ pip install -U atgfe
 
 ## Examples
 The [Examples](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/) are grouped under the following two sections:
-- [Generated](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/generated) examples aim to demonstrate ATgfe's ability. ATgfe is tested against hand-crafted non-linear problems where we know there is information that can be captured using feature interactions. 
+- [Generated](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/generated) examples test ATgfe against hand-crafted non-linear problems where we know there is information that can be captured using feature interactions. 
 
 - [Toy Examples](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/toy-examples) show how to use ATgfe in solving a mix of regression and classification problems from publicly available benchmark datasets.
 
