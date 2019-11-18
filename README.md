@@ -67,9 +67,9 @@ This is demonstrated in the following examples: [BMI](https://github.com/ahmed-m
 pip install atgfe
 ```
 ## Upgrade ATgfe
-```
+```bash
 pip install -U atgfe
-```
+```bash
 # Usage
 
 ## Examples
@@ -80,7 +80,7 @@ The [Examples](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/) 
 
 ## Pre-processing for column names
 ### ATgfe requires column names that are free from special characters (e.g. @, $, %, #, etc.)
-```
+```python
 # example
 def prepare_column_names(columns):
     return [col.replace(';', 'semi')
@@ -96,7 +96,7 @@ df.columns = columns
 ```
 
 ## Configuring the parameters of GeneticFeatureEngineer
-```
+```python
 GeneticFeatureEngineer(
     model,
     x_train: pandas.core.frame.DataFrame,
@@ -182,7 +182,7 @@ The number of decimal places (i.e. precision) to be applied to the weight values
 A boolean flag, which should be set to ```True``` to enable the logging functionality.
 
 ## Configuring the parameters of fit()
-```
+```python
 gfe.fit(
     number_of_generations: int = 100,
     population_size: int = 300,
@@ -210,7 +210,7 @@ The maximum number of generations to be explored before early the stopping crite
 
 
 ## Configuring the parameters of transform()
-```
+```python
 X = gfe.transform(X)
 ```
 
@@ -219,7 +219,7 @@ Where X is the pandas dataframe that you would like to append the generated feat
 ## Transformation operations
 
 ### Get current transformation operations
-```
+```python
 gfe.get_enabled_transformation_operations()
 ```
 
@@ -230,15 +230,15 @@ The enabled transformation operations will be returned.
 ```
 ### Remove existing transformation operations
 ```gfe.remove_transformation_operation``` accepts string or a list of strings
-```
+```python
 gfe.remove_transformation_operation('squared')
 ```
 
-```
+```python
 gfe.remove_transformation_operation(['np_log_10', 'np_exp'])
 ```
 ### Add new transformation operations 
-```
+```python
 np_sqrt = np.sqrt
 
 def some_func(x):
