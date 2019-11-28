@@ -43,14 +43,13 @@ This is demonstrated in the following examples: [BMI](https://github.com/ahmed-m
 ## Classification
 | Dataset                          | Logistic Regression                                                     | LightGBM Classifier                                                    | Logistic Regression + ATgfe                                        |
 |----------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------|
-| SPAM  (57 features)              | <ul>     <li>Accuracy: 0.917</li>     <li>ROC_AUC: 0.97</li> </ul>      | <ul><li>Accuracy: **0.944**</li>  <li>ROC_AUC: **0.98**</li> </ul>     | <ul>     <li>Accuracy: 0.931</li>     <li>ROC_AUC: 0.97</li> </ul> |
-| IRIS  (4 features)               | <ul>     <li>Accuracy: 0.9</li>     <li>ROC_AUC: 0.95</li> </ul>        |  <ul>     <li>Accuracy: 0.946</li>     <li>ROC_AUC: 0.98</li> </ul>    | <ul>  <li>Accuracy: **0.973**</li><li>ROC_AUC: **0.99**</li> </ul> |
+| IRIS  (4 features)               | <ul>     <li>10-CV Accuracy: 0.926</li><li>Test-data Accuracy: 0.911</li><li>ROC_AUC: 0.99</li> </ul>        |  <ul>     <li>10-CV Accuracy: 0.946</li><li>Test-data Accuracy: 0.977</li><li>ROC_AUC: 1.0</li> </ul>    | <ul>  <li>10-CV Accuracy: **0.98**</li><li>Test-data Accuracy: **1.0**</li><li>ROC_AUC: **1.0**</li> </ul> |
 
 ## Regression
 | Dataset                          | Linear Regression                                                       | LightGBM Regressor                                                     | Linear Regression + ATgfe                                          |
 |----------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------|
-| Concrete  (8 features)           | <ul>     <li>RMSE: 11.13</li>     <li>r^2: 0.643</li> </ul>             | <ul>     <li>RMSE: **6.44**</li>     <li>r^2: **0.935**</li> </ul>     | <ul>     <li>RMSE: 6.68</li>     <li>r^2: 0.891</li> </ul>         |
-| Boston  (13 features)            | <ul>     <li>RMSE: 4.796</li>     <li>r^2: 0.765</li> </ul>             | <ul>     <li>RMSE: 3.38</li>     <li>r^2: 0.859</li> </ul>             | <ul>  <li>RMSE: **3.20**</li><li>r^2: **0.895**</li> </ul>         |
+| Concrete  (8 features)           | <ul>     <li>10-CV RMSE: 11.13</li><li>Test-data RMSE: 10.38</li><li>r^2: 0.644</li> </ul>             | <ul>     <li>10-CV RMSE: 6.44</li><li>Test-data RMSE: **4.23**</li>     <li>r^2: **0.941**</li> </ul>     | <ul>     <li>10-CV RMSE: **6.00**</li><li>Test-data RMSE: 5.45</li>     <li>r^2: 0.899</li> </ul>         |
+| Boston  (13 features)            | <ul>     <li>10-CV RMSE: 4.796</li><li>Test-data RMSE: 4.714</li><li>r^2: 0.765</li> </ul>             | <ul>     <li>10-CV RMSE: 3.38</li> <li>Test-data RMSE: 3.63</li>    <li>r^2: 0.86</li> </ul>             | <ul>  <li>10-CV RMSE: **3.125**</li><li>Test-data RMSE: **2.758**</li><li>r^2: **0.920**</li> </ul>         |
 
 # Get started
 
@@ -79,17 +78,11 @@ The [Examples](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/) 
 - [Toy Examples](https://github.com/ahmed-mohamed-sn/ATgfe/tree/master/examples/toy-examples) show how to use ATgfe in solving a mix of regression and classification problems from publicly available benchmark datasets.
 
 ## Pre-processing for column names
-### ATgfe requires column names that are free from special characters (e.g. @, $, %, #, etc.)
+### ATgfe requires column names that are free from special characters and spaces (e.g. @, $, %, #, etc.)
 ```python
 # example
 def prepare_column_names(columns):
-    return [col.replace(';', 'semi')
-            .replace('(', 'left_brace')
-            .replace('[', 'left_bracket')
-            .replace('$', 'dollar_sign')
-            .replace('#', 'hash')
-            .replace('!', 'explanation_mark')
-            for col in columns]
+    return [col.replace(' ', '').replace('(cm)', '_cm') for col in columns]
 
 columns = prepare_column_names(df.columns.tolist())
 df.columns = columns
@@ -113,8 +106,14 @@ GeneticFeatureEngineer(
     fit_wo_original_columns: bool = False,
     enable_feature_transformation_operations: bool = False,
     enable_weights: bool = False,
+    enable_bias: bool = False,
+    max_bias: float = 100.0,
     weights_number_of_decimal_places: int = 2,
-    verbose: bool = True,
+    shuffle_training_data_every_generation: bool = False,
+    cross_validation_in_objective_func: bool = False,
+    objective_func_cv: int = 3,
+    n_jobs: int = 1,
+    verbose: bool = True
 )
 ```
 
@@ -178,26 +177,54 @@ A boolean flag, which should be set to ```True``` to enable weighted feature int
 ### weights_number_of_decimal_places
 The number of decimal places (i.e. precision) to be applied to the weight values.
 
+### enable_bias
+A boolean flag, which enables the genetic algorithm to add a bias to the expressions generated. For example:
+```
+0.43*log(cement) + 806.8557595548646
+```
+
+### max_bias
+The value of the bias will be between ```-max_bias``` and ```max_bias```.
+If the ```max_bias``` is 100 then the bias value will be between -100 and 100.
+
+### shuffle_training_data_every_generation
+A boolean flag, if enabled the ```train_test_split``` method in the objective function uses the generation number as its random seed. This can prevent over-fitting. <br/>
+This option is only available if ```cross_validation_in_objective_func``` is set to ```False```.  
+
+### cross_validation_in_objective_func
+A boolean flag, if enabled the ```train_test_split``` method will not be used in the objective function. Instead of using ```train_test_split```, the genetic algorithm will use cross validation to evaluate the generated features.
+<br/> The default number of folds is **3**. The number of folds can modified using the ```objective_func_cv``` parameter.
+
+### objective_func_cv
+The number of folds to be used when ```cross_validation_in_objective_func``` is enabled.
+
 ### verbose
 A boolean flag, which should be set to ```True``` to enable the logging functionality.
+
+### n_jobs
+To enable parallel processing, set ```n_jobs``` to the number of CPUs that you would like to utilise. If ```n_jobs``` is set to **-1**, all the machine's CPUs will be utilised.
 
 ## Configuring the parameters of fit()
 ```python
 gfe.fit(
     number_of_generations: int = 100,
-    population_size: int = 300,
+    mu: int = 10,
+    lambda_: int = 100,
     crossover_probability: float = 0.5,
     mutation_probability: float = 0.2,
     early_stopping_patience: int = 5,
-    random_state: int = 77,
+    random_state: int = 77
 )
 ```
 
 ### number_of_generations
 The maximum number of generations to be explored by the genetic algorithm.
 
-### population_size
-The number of solutions in a population.
+### mu
+The number of solutions to select for the next generation.
+
+### lambda_
+The number of children to produce at each generation.
 
 ### crossover_probability
 The crossover probability.
