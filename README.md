@@ -4,6 +4,8 @@
 <img src="https://live.staticflickr.com/65535/49014776017_40a14d33ef.jpg" alt="ATgfe-logo"/>
 </div>
 
+# ATGFE is under refactoring, afterwards the repo will be updated.
+
 # What is ATgfe?
 ATgfe stands for Automated Transparent Genetic Feature Engineering. ATgfe is powered by genetic algorithm to engineer new features. The idea is to compose new interpretable features based on interactions between the existing features. The predictive power of the newly constructed features are measured using a pre-defined evaluation metric, which can be custom designed.
 
